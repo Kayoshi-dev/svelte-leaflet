@@ -17,13 +17,11 @@
 </script>
 
 <div id="map" bind:this={map}>
-	<slot name="tileLayer" />
-
 	<slot />
 </div>
 
 <style>
 	#map {
-		height: 100vh;
+		height: 100%;
 	}
 </style>

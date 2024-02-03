@@ -1,58 +1,89 @@
-# create-svelte
+# Svelte-leaflet
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Leaflet components bindings for Svelte !
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+## Installation
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+Install svelte-leaflet with your favorite package manager
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+npm install @kayoshi-dev/svelte-leaflet leaflet
 ```
 
-## Developing
+## Features
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- Map
+- TileLayer
+- Marker
+- And more to come!
 
-```bash
-npm run dev
+## Documentation
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+[!NOTE]  
+This is still a WIP. API might change.
+
+```ts
+import { MapContainer, Marker, TileLayer } from '@kayoshi-dev/svelte-leaflet';
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+For the moment only three components are available :
 
-## Building
+### MapContainer
 
-To build your library:
+This is the main component that will help you create your interactive map.  
+**All the other components should be used inside the body of that component.**
 
-```bash
-npm run package
+[!IMPORTANT]  
+Must be used with the <TileLayer> component!
+
+#### Props
+
+- Center (mandatory)
+- Zoom
+- Zoom Options (an object that contains all the additionals properties you can add)
+
+Usage :
+
+```ts
+<MapContainer center={[48, 2.34]}>
+
+</MapContainer>
 ```
 
-To create a production version of your showcase app:
+### TileLayer
 
-```bash
-npm run build
+This component allows you to define the tile layer you would like to use.
+
+#### Props
+
+- Attribution (mandatory)
+- Url (mandatory)
+- TileLayerOptions
+
+Usage :
+
+```ts
+<MapContainer center={[48, 2.34]}>
+    <TileLayer attribution="&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors" url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
+</MapContainer>
 ```
 
-You can preview the production build with `npm run preview`.
+### Marker (WIP)
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Add one or multiple markers on your map
 
-## Publishing
+#### Props
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
+- Latlng (mandatory)
+- PopupText
+- MarkerOptions
 
-To publish your library to [npm](https://www.npmjs.com):
+Usage :
 
-```bash
-npm publish
+```ts
+<Marker latlng={[48, 2.34]} popupText={'Hello world!'} markerOptions={{ draggable: true }} />
 ```
+
+## Authors
+
+- [Kayoshi-dev](https://www.github.com/kayoshi-dev)

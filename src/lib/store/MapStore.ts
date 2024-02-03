@@ -1,4 +1,4 @@
-import { Map } from 'leaflet';
+import type { Map } from 'leaflet';
 import { writable } from 'svelte/store';
 
 interface FunctionCallback {

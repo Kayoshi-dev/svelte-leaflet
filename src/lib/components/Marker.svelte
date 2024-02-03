@@ -4,16 +4,20 @@
 	import { updatedInstance } from '$lib/store/MapStore.js';
 
 	export let latlng: LatLngExpression;
+	export let popupText: string | undefined = undefined;
+	export let openPopup: boolean = false;
+
 	export let markerOptions: MarkerOptions = {};
 
 	onMount(() => {
 		updatedInstance((li) => {
-			L.marker(latlng, {
+			const marker = L.marker(latlng, {
 				...markerOptions
-			})
-				.addTo(li)
-				.bindPopup('test')
-				.openPopup();
+			}).addTo(li);
+
+			if (popupText) marker.bindPopup(popupText);
+
+			if (openPopup) marker.openPopup();
 		});
 	});
 </script>

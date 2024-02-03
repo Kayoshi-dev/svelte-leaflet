@@ -6,7 +6,7 @@
 	export let attribution: string;
 	export let url: string;
 
-	export let tileLayerOptions: TileLayerOptions = {};
+	export let tileLayerOptions: Omit<TileLayerOptions, 'attribution'> = {};
 
 	onMount(() => {
 		updatedInstance((li) => {
