@@ -19,8 +19,8 @@ npm install @kayoshi-dev/svelte-leaflet leaflet
 
 ## Documentation
 
-[!NOTE]  
-This is still a WIP. API might change.
+> [!NOTE]  
+> This is still a WIP. API might change.
 
 ```ts
 import { MapContainer, Marker, TileLayer } from '@kayoshi-dev/svelte-leaflet';
@@ -33,8 +33,8 @@ For the moment only three components are available :
 This is the main component that will help you create your interactive map.  
 **All the other components should be used inside the body of that component.**
 
-[!IMPORTANT]  
-Must be used with the <TileLayer> component!
+> [!IMPORTANT]  
+> Must be used with the <TileLayer> component!
 
 #### Props
 
